@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Plan de Pruebas" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Plan 1" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">60</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Petición JDBC" enabled="true">
+          <stringProp name="dataSource">SQLVariable</stringProp>
+          <stringProp name="query">select top 500000 *  from Salida</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="Configuración de la Conexión JDBC" enabled="true">
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="checkQuery">select 1</stringProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="dataSource">SQLVariable</stringProp>
+          <stringProp name="dbUrl">jdbc:jtds:sqlserver://DAVID;databaseName=ComputerDB;</stringProp>
+          <stringProp name="driver">net.sourceforge.jtds.jdbc.Driver</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="password">123</stringProp>
+          <stringProp name="poolMax">10</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <stringProp name="username">david</stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Gráfico" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Reporte resumen" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Gráfico de Resultados" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\Users\DAVID\Desktop\archivos\VII ciclo\3. BASE DE DATOS II\ejercicios JMETER\Plan 1.jmx</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Plan 2" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">5</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">24</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">6</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Petición JDBC" enabled="true">
+          <stringProp name="dataSource">SQLVariable2</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">select * from departamento d
+order by d.nombreDepartamento</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="Configuración de la Conexión JDBC" enabled="true">
+          <stringProp name="dataSource">SQLVariable2</stringProp>
+          <stringProp name="poolMax">10</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="checkQuery">select 1</stringProp>
+          <stringProp name="dbUrl">jdbc:jtds:sqlserver://DAVID;databaseName=ComputerDB;</stringProp>
+          <stringProp name="driver">net.sourceforge.jtds.jdbc.Driver</stringProp>
+          <stringProp name="username">david</stringProp>
+          <stringProp name="password">123</stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Reporte resumen" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Plan 3" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">10</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">32</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">9</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Petición JDBC" enabled="true">
+          <stringProp name="dataSource">SQLVariable3</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">select * from bodega b
+order by b.nombreBodega</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="Configuración de la Conexión JDBC" enabled="true">
+          <stringProp name="dataSource">SQLVariable3</stringProp>
+          <stringProp name="poolMax">10</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="checkQuery">select 1</stringProp>
+          <stringProp name="dbUrl">jdbc:jtds:sqlserver://DAVID;databaseName=ComputerDB;</stringProp>
+          <stringProp name="driver">net.sourceforge.jtds.jdbc.Driver</stringProp>
+          <stringProp name="username">david</stringProp>
+          <stringProp name="password">123</stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Gráfico de Resultados" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\Users\DAVID\Desktop\archivos\VII ciclo\3. BASE DE DATOS II\ejercicios JMETER\Plan 1.jmx</stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Reporte resumen" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
+1526500989531,12518,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-9,text,false,,67,0,56,56,0,0,12518
+1526500989535,12514,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-5,text,false,,67,0,56,56,0,0,12514
+1526500989533,12516,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-3,text,false,,67,0,56,56,0,0,12516
+1526500989534,12515,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-10,text,false,,67,0,56,56,0,0,12515
+1526500989535,12514,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-8,text,false,,67,0,56,56,0,0,12514
+1526500989531,12518,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-2,text,false,,67,0,56,56,0,0,12518
+1526500989542,12509,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-6,text,false,,67,0,55,55,0,0,12509
+1526500989581,12518,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-26,text,false,,67,0,49,49,0,0,12518
+1526500989578,12475,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-30,text,false,,67,0,55,55,0,0,12475
+1526500989580,12521,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-25,text,false,,67,0,47,47,0,0,12521
+1526500989578,12475,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-28,text,false,,67,0,55,55,0,0,12475
+1526500989579,12527,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-27,text,false,,67,0,45,45,0,0,12527
+1526500989577,12476,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-33,text,false,,67,0,55,55,0,0,12476
+1526500989578,12530,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-29,text,false,,67,0,43,43,0,0,12530
+1526500989576,12477,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-34,text,false,,67,0,55,55,0,0,12477
+1526500989576,12477,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-36,text,false,,67,0,55,55,0,0,12477
+1526500989575,12478,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-38,text,false,,67,0,55,55,0,0,12478
+1526500989575,12478,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-41,text,false,,67,0,55,55,0,0,12478
+1526500989574,12479,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-37,text,false,,67,0,55,55,0,0,12479
+1526500989573,12480,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-52,text,false,,67,0,55,55,0,0,12480
+1526500989574,12479,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-39,text,false,,67,0,55,55,0,0,12479
+1526500989573,12480,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-40,text,false,,67,0,55,55,0,0,12480
+1526500989573,12480,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-46,text,false,,67,0,55,55,0,0,12480
+1526500989572,12481,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-53,text,false,,67,0,55,55,0,0,12481
+1526500989573,12480,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-48,text,false,,67,0,55,55,0,0,12480
+1526500989572,12481,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-54,text,false,,67,0,55,55,0,0,12480
+1526500989572,12481,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-51,text,false,,67,0,55,55,0,0,12480
+1526500989571,12481,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-55,text,false,,67,0,55,55,0,0,12481
+1526500989571,12481,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-58,text,false,,67,0,55,55,0,0,12481
+1526500989570,12482,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-32,text,false,,67,0,55,55,0,0,12482
+1526500989570,12482,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-59,text,false,,67,0,55,55,0,0,12482
+1526500989569,12483,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-42,text,false,,67,0,55,55,0,0,12483
+1526500989569,12483,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-35,text,false,,67,0,55,55,0,0,12483
+1526500989567,12485,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-31,text,false,,67,0,55,55,0,0,12485
+1526500989566,12486,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-47,text,false,,67,0,55,55,0,0,12486
+1526500989566,12486,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-44,text,false,,67,0,55,55,0,0,12486
+1526500989566,12486,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-50,text,false,,67,0,55,55,0,0,12486
+1526500989566,12486,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-60,text,false,,67,0,55,55,0,0,12486
+1526500989565,12487,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-14,text,false,,67,0,55,55,0,0,12487
+1526500989565,12487,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-49,text,false,,67,0,55,55,0,0,12487
+1526500989552,12500,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-45,text,false,,67,0,55,55,0,0,12500
+1526500989547,12505,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-23,text,false,,67,0,55,55,0,0,12505
+1526500989561,12491,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-57,text,false,,67,0,55,55,0,0,12491
+1526500989547,12505,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-13,text,false,,67,0,55,55,0,0,12505
+1526500989535,12516,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-7,text,false,,67,0,55,55,0,0,12516
+1526500989538,12513,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-4,text,false,,67,0,55,55,0,0,12513

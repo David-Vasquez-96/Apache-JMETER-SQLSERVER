@@ -1,0 +1,4 @@
+video para realizar ejercicio jmeter
+https://www.youtube.com/watch?v=naqlwbnwUmQ
+grupo de hilos comentario
+http://stackoverflow.com/questions/23237944/jmeter-sqlserver-database-load-test

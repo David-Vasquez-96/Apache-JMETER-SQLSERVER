@@ -1,0 +1,845 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="4.0" jmeter="4.0 r1823414">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Plan de Pruebas" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="Variables definidas por el Usuario" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Plan 1" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">70</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">0</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Petición JDBC" enabled="true">
+          <stringProp name="dataSource">SQLVariable</stringProp>
+          <stringProp name="query">select top 500000 *  from Salida</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="Configuración de la Conexión JDBC" enabled="true">
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="checkQuery">select 1</stringProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="dataSource">SQLVariable</stringProp>
+          <stringProp name="dbUrl">jdbc:jtds:sqlserver://DAVID;databaseName=ComputerDB;</stringProp>
+          <stringProp name="driver">net.sourceforge.jtds.jdbc.Driver</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="password">123</stringProp>
+          <stringProp name="poolMax">10</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <stringProp name="username">david</stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <ResultCollector guiclass="StatGraphVisualizer" testclass="ResultCollector" testname="Gráfico" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Reporte resumen" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Gráfico de Resultados" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\Users\DAVID\Desktop\archivos\VII ciclo\3. BASE DE DATOS II\ejercicios JMETER\Plan 1.jmx</stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Plan 2" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">5</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">24</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">6</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Petición JDBC" enabled="true">
+          <stringProp name="dataSource">SQLVariable2</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">select * from departamento d
+order by d.nombreDepartamento</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="Configuración de la Conexión JDBC" enabled="true">
+          <stringProp name="dataSource">SQLVariable2</stringProp>
+          <stringProp name="poolMax">10</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="checkQuery">select 1</stringProp>
+          <stringProp name="dbUrl">jdbc:jtds:sqlserver://DAVID;databaseName=ComputerDB;</stringProp>
+          <stringProp name="driver">net.sourceforge.jtds.jdbc.Driver</stringProp>
+          <stringProp name="username">david</stringProp>
+          <stringProp name="password">123</stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Reporte resumen" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Plan 3" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Controlador Bucle" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">10</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">32</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">9</stringProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="Petición JDBC" enabled="true">
+          <stringProp name="dataSource">SQLVariable3</stringProp>
+          <stringProp name="queryType">Select Statement</stringProp>
+          <stringProp name="query">select * from bodega b
+order by b.nombreBodega</stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="Configuración de la Conexión JDBC" enabled="true">
+          <stringProp name="dataSource">SQLVariable3</stringProp>
+          <stringProp name="poolMax">10</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="checkQuery">select 1</stringProp>
+          <stringProp name="dbUrl">jdbc:jtds:sqlserver://DAVID;databaseName=ComputerDB;</stringProp>
+          <stringProp name="driver">net.sourceforge.jtds.jdbc.Driver</stringProp>
+          <stringProp name="username">david</stringProp>
+          <stringProp name="password">123</stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <ResultCollector guiclass="GraphVisualizer" testclass="ResultCollector" testname="Gráfico de Resultados" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename">C:\Users\DAVID\Desktop\archivos\VII ciclo\3. BASE DE DATOS II\ejercicios JMETER\Plan 1.jmx</stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="SummaryReport" testclass="ResultCollector" testname="Reporte resumen" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="Ver Árbol de Resultados" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
+1526501104280,236,Petición JDBC,200,OK,Plan 3 3-11,text,true,,797,0,11,93,235,0,58
+1526501103550,974,Petición JDBC,200,OK,Plan 3 3-8,text,true,,797,0,11,93,966,0,788
+1526501103831,693,Petición JDBC,200,OK,Plan 3 3-9,text,true,,797,0,11,93,685,0,507
+1526501102704,1821,Petición JDBC,200,OK,Plan 3 3-5,text,true,,797,0,11,93,1811,0,1635
+1526501102986,1539,Petición JDBC,200,OK,Plan 3 3-6,text,true,,797,0,11,93,1529,0,1352
+1526501102140,2385,Petición JDBC,200,OK,Plan 3 3-3,text,true,,797,0,11,93,2375,0,2199
+1526501104525,12,Petición JDBC,200,OK,Plan 3 3-11,text,true,,797,0,11,93,12,0,2
+1526501101857,2680,Petición JDBC,200,OK,Plan 3 3-2,text,true,,797,0,11,93,2680,0,2668
+1526501104533,6,Petición JDBC,200,OK,Plan 3 3-5,text,true,,797,0,11,93,6,0,3
+1526501104533,6,Petición JDBC,200,OK,Plan 3 3-6,text,true,,797,0,11,93,6,0,3
+1526501104533,12,Petición JDBC,200,OK,Plan 3 3-8,text,true,,797,0,11,93,12,0,3
+1526501103155,1390,Petición JDBC,200,OK,Plan 3 3-7,text,true,,797,0,11,93,1390,0,1183
+1526501104538,7,Petición JDBC,200,OK,Plan 3 3-11,text,true,,797,0,11,93,5,0,0
+1526501104539,6,Petición JDBC,200,OK,Plan 3 3-2,text,true,,797,0,11,93,4,0,0
+1526501104113,432,Petición JDBC,200,OK,Plan 3 3-10,text,true,,797,0,11,93,432,0,225
+1526501104533,11,Petición JDBC,200,OK,Plan 3 3-3,text,true,,797,0,11,93,11,0,5
+1526501101576,2968,Petición JDBC,200,OK,Plan 3 3-1,text,true,,797,0,11,93,2968,0,2760
+1526501102422,2119,Petición JDBC,200,OK,Plan 3 3-4,text,true,,797,0,11,93,2119,0,1916
+1526501104533,8,Petición JDBC,200,OK,Plan 3 3-9,text,true,,797,0,11,93,8,0,3
+1526501104546,10,Petición JDBC,200,OK,Plan 3 3-6,text,true,,797,0,11,92,10,0,0
+1526501104549,7,Petición JDBC,200,OK,Plan 3 3-11,text,true,,797,0,11,92,7,0,0
+1526501104549,10,Petición JDBC,200,OK,Plan 3 3-7,text,true,,797,0,11,92,10,0,0
+1526501104550,11,Petición JDBC,200,OK,Plan 3 3-10,text,true,,797,0,11,92,11,0,0
+1526501104556,11,Petición JDBC,200,OK,Plan 3 3-6,text,true,,797,0,11,91,10,0,0
+1526501104542,25,Petición JDBC,200,OK,Plan 3 3-5,text,true,,797,0,11,91,21,0,1
+1526501104549,21,Petición JDBC,200,OK,Plan 3 3-8,text,true,,797,0,11,89,20,0,5
+1526501104549,21,Petición JDBC,200,OK,Plan 3 3-2,text,true,,797,0,11,89,20,0,4
+1526501104554,20,Petición JDBC,200,OK,Plan 3 3-9,text,true,,797,0,11,90,20,0,2
+1526501104559,15,Petición JDBC,200,OK,Plan 3 3-7,text,true,,797,0,11,90,15,0,0
+1526501104562,15,Petición JDBC,200,OK,Plan 3 3-10,text,true,,797,0,11,90,14,0,0
+1526501104553,37,Petición JDBC,200,OK,Plan 3 3-4,text,true,,797,0,11,90,37,0,0
+1526501104553,41,Petición JDBC,200,OK,Plan 3 3-1,text,true,,797,0,11,90,41,0,1
+1526501104567,29,Petición JDBC,200,OK,Plan 3 3-6,text,true,,797,0,11,90,29,0,0
+1526501104567,35,Petición JDBC,200,OK,Plan 3 3-5,text,true,,797,0,11,90,34,0,0
+1526501104575,39,Petición JDBC,200,OK,Plan 3 3-9,text,true,,797,0,11,88,38,0,0
+1526501104575,42,Petición JDBC,200,OK,Plan 3 3-7,text,true,,797,0,11,88,41,0,15
+1526501104571,47,Petición JDBC,200,OK,Plan 3 3-2,text,true,,797,0,11,88,47,0,4
+1526501104577,47,Petición JDBC,200,OK,Plan 3 3-10,text,true,,797,0,11,88,47,0,0
+1526501104591,48,Petición JDBC,200,OK,Plan 3 3-4,text,true,,797,0,11,87,48,0,4
+1526501104614,30,Petición JDBC,200,OK,Plan 3 3-9,text,true,,797,0,11,86,30,0,0
+1526501104553,93,Petición JDBC,200,OK,Plan 3 3-3,text,true,,797,0,11,86,92,0,4
+1526501104617,30,Petición JDBC,200,OK,Plan 3 3-7,text,true,,797,0,11,86,30,0,0
+1526501104596,51,Petición JDBC,200,OK,Plan 3 3-6,text,true,,797,0,11,86,51,0,0
+1526501104557,93,Petición JDBC,200,OK,Plan 3 3-11,text,true,,797,0,11,86,93,0,13
+1526501104570,81,Petición JDBC,200,OK,Plan 3 3-8,text,true,,797,0,11,86,81,0,0
+1526501104603,53,Petición JDBC,200,OK,Plan 3 3-5,text,true,,797,0,11,86,53,0,21
+1526501104624,39,Petición JDBC,200,OK,Plan 3 3-10,text,true,,797,0,11,86,38,0,15
+1526501104619,45,Petición JDBC,200,OK,Plan 3 3-2,text,true,,797,0,11,86,44,0,0
+1526501104595,72,Petición JDBC,200,OK,Plan 3 3-1,text,true,,797,0,11,86,72,0,7
+1526501104639,30,Petición JDBC,200,OK,Plan 3 3-4,text,true,,797,0,11,86,30,0,5
+1526501104647,37,Petición JDBC,200,OK,Plan 3 3-7,text,true,,797,0,12,87,37,0,0
+1526501104651,34,Petición JDBC,200,OK,Plan 3 3-11,text,true,,797,0,12,87,34,0,12
+1526501104647,39,Petición JDBC,200,OK,Plan 3 3-3,text,true,,797,0,12,87,38,0,0
+1526501104656,32,Petición JDBC,200,OK,Plan 3 3-5,text,true,,797,0,12,87,31,0,0
+1526501104668,22,Petición JDBC,200,OK,Plan 3 3-1,text,true,,797,0,12,87,22,0,1
+1526501104644,47,Petición JDBC,200,OK,Plan 3 3-9,text,true,,797,0,12,87,47,0,2
+1526501104663,32,Petición JDBC,200,OK,Plan 3 3-10,text,true,,797,0,12,86,32,0,1
+1526501104648,47,Petición JDBC,200,OK,Plan 3 3-6,text,true,,797,0,12,86,47,0,2
+1526501104651,46,Petición JDBC,200,OK,Plan 3 3-8,text,true,,797,0,12,86,46,0,0
+1526501104670,29,Petición JDBC,200,OK,Plan 3 3-4,text,true,,797,0,12,86,29,0,14
+1526501104686,28,Petición JDBC,200,OK,Plan 3 3-3,text,true,,797,0,12,86,28,0,4
+1526501104675,39,Petición JDBC,200,OK,Plan 3 3-12,text,true,,797,0,12,86,39,0,10
+1526501104685,32,Petición JDBC,200,OK,Plan 3 3-11,text,true,,797,0,12,86,32,0,3
+1526501104684,37,Petición JDBC,200,OK,Plan 3 3-7,text,true,,797,0,12,84,37,0,2
+1526501104696,29,Petición JDBC,200,OK,Plan 3 3-6,text,true,,797,0,12,83,28,0,4
+1526501104664,63,Petición JDBC,200,OK,Plan 3 3-2,text,true,,797,0,12,83,63,0,3
+1526501104696,35,Petición JDBC,200,OK,Plan 3 3-10,text,true,,797,0,12,83,35,0,0
+1526501104698,36,Petición JDBC,200,OK,Plan 3 3-8,text,true,,797,0,12,83,35,0,16
+1526501104715,20,Petición JDBC,200,OK,Plan 3 3-3,text,true,,797,0,12,83,20,0,2
+1526501104692,46,Petición JDBC,200,OK,Plan 3 3-9,text,true,,797,0,12,83,46,0,0
+1526501104714,25,Petición JDBC,200,OK,Plan 3 3-12,text,true,,797,0,12,83,24,0,0
+1526501104725,14,Petición JDBC,200,OK,Plan 3 3-6,text,true,,797,0,12,83,14,0,0
+1526501104690,51,Petición JDBC,200,OK,Plan 3 3-1,text,true,,797,0,12,83,51,0,5
+1526501104688,54,Petición JDBC,200,OK,Plan 3 3-5,text,true,,797,0,12,83,54,0,9
+1526501104727,22,Petición JDBC,200,OK,Plan 3 3-2,text,true,,797,0,12,82,21,0,7
+1526501104735,14,Petición JDBC,200,OK,Plan 3 3-3,text,true,,797,0,12,82,14,0,4
+1526501104722,29,Petición JDBC,200,OK,Plan 3 3-7,text,true,,797,0,12,82,29,0,0
+1526501104738,13,Petición JDBC,200,OK,Plan 3 3-9,text,true,,797,0,12,82,13,0,1
+1526501104732,21,Petición JDBC,200,OK,Plan 3 3-10,text,true,,797,0,12,82,21,0,3
+1526501104718,35,Petición JDBC,200,OK,Plan 3 3-11,text,true,,797,0,12,82,35,0,13
+1526501104700,56,Petición JDBC,200,OK,Plan 3 3-4,text,true,,797,0,12,82,56,0,27
+1526501104741,21,Petición JDBC,200,OK,Plan 3 3-1,text,true,,797,0,12,82,21,0,8
+1526501104742,24,Petición JDBC,200,OK,Plan 3 3-5,text,true,,797,0,12,82,23,0,8
+1526501104750,16,Petición JDBC,200,OK,Plan 3 3-3,text,true,,797,0,12,82,16,0,1
+1526501104752,15,Petición JDBC,200,OK,Plan 3 3-9,text,true,,797,0,12,82,14,0,1
+1526501104734,34,Petición JDBC,200,OK,Plan 3 3-8,text,true,,797,0,12,82,33,0,4
+1526501104739,29,Petición JDBC,200,OK,Plan 3 3-12,text,true,,797,0,12,82,29,0,2
+1526501104740,33,Petición JDBC,200,OK,Plan 3 3-6,text,true,,797,0,12,82,33,0,2
+1526501104753,24,Petición JDBC,200,OK,Plan 3 3-10,text,true,,797,0,11,81,23,0,9
+1526501104757,21,Petición JDBC,200,OK,Plan 3 3-4,text,true,,797,0,11,81,21,0,9
+1526501104749,29,Petición JDBC,200,OK,Plan 3 3-2,text,true,,797,0,11,81,29,0,2
+1526501104763,16,Petición JDBC,200,OK,Plan 3 3-1,text,true,,797,0,11,81,16,0,4
+1526501104767,13,Petición JDBC,200,OK,Plan 3 3-9,text,true,,797,0,11,81,13,0,0
+1526501104752,28,Petición JDBC,200,OK,Plan 3 3-7,text,true,,797,0,10,80,28,0,1
+1526501104768,18,Petición JDBC,200,OK,Plan 3 3-12,text,true,,797,0,10,80,18,0,9
+1526501104753,35,Petición JDBC,200,OK,Plan 3 3-11,text,true,,797,0,10,80,35,0,3
+1526501104779,12,Petición JDBC,200,OK,Plan 3 3-4,text,true,,797,0,10,80,12,0,0
+1526501104779,13,Petición JDBC,200,OK,Plan 3 3-2,text,true,,797,0,10,80,13,0,0
+1526501104786,13,Petición JDBC,200,OK,Plan 3 3-12,text,true,,797,0,10,80,13,0,0
+1526501104779,21,Petición JDBC,200,OK,Plan 3 3-1,text,true,,797,0,10,80,21,0,1
+1526501104766,35,Petición JDBC,200,OK,Plan 3 3-5,text,true,,797,0,10,80,35,0,2
+1526501104777,24,Petición JDBC,200,OK,Plan 3 3-10,text,true,,797,0,10,80,24,0,1
+1526501104791,10,Petición JDBC,200,OK,Plan 3 3-4,text,true,,797,0,10,80,10,0,0
+1526501104767,38,Petición JDBC,200,OK,Plan 3 3-3,text,true,,797,0,9,79,38,0,1
+1526501104768,38,Petición JDBC,200,OK,Plan 3 3-8,text,true,,797,0,9,79,38,0,5
+1526501104781,35,Petición JDBC,200,OK,Plan 3 3-7,text,true,,797,0,9,80,35,0,0
+1526501104792,24,Petición JDBC,200,OK,Plan 3 3-2,text,true,,797,0,9,80,24,0,0
+1526501104801,15,Petición JDBC,200,OK,Plan 3 3-1,text,true,,797,0,9,80,15,0,0
+1526501104799,22,Petición JDBC,200,OK,Plan 3 3-12,text,true,,797,0,7,78,22,0,0
+1526501104789,36,Petición JDBC,200,OK,Plan 3 3-11,text,true,,797,0,7,78,36,0,0
+1526501104801,28,Petición JDBC,200,OK,Plan 3 3-4,text,true,,797,0,6,77,27,0,1
+1526501104801,30,Petición JDBC,200,OK,Plan 3 3-5,text,true,,797,0,5,76,30,0,1
+1526501104816,19,Petición JDBC,200,OK,Plan 3 3-1,text,true,,797,0,4,75,19,0,0
+1526501104822,13,Petición JDBC,200,OK,Plan 3 3-12,text,true,,797,0,3,74,13,0,0
+1526501104836,18,Petición JDBC,200,OK,Plan 3 3-12,text,true,,797,0,3,74,18,0,0
+1526501104807,48,Petición JDBC,200,OK,Plan 3 3-8,text,true,,797,0,3,74,48,0,0
+1526501104854,21,Petición JDBC,200,OK,Plan 3 3-12,text,true,,797,0,4,75,21,0,0
+1526501104875,16,Petición JDBC,200,OK,Plan 3 3-12,text,true,,797,0,4,75,16,0,0
+1526501104805,86,Petición JDBC,200,OK,Plan 3 3-3,text,true,,797,0,3,74,86,0,0
+1526501104857,36,Petición JDBC,200,OK,Plan 3 3-13,text,true,,797,0,2,73,35,0,0
+1526501104855,51,Petición JDBC,200,OK,Plan 3 3-8,text,true,,797,0,2,73,51,0,0
+1526501104893,18,Petición JDBC,200,OK,Plan 3 3-13,text,true,,797,0,1,72,18,0,0
+1526501104912,15,Petición JDBC,200,OK,Plan 3 3-13,text,true,,797,0,1,72,14,0,0
+1526501104927,15,Petición JDBC,200,OK,Plan 3 3-13,text,true,,797,0,1,72,15,0,0
+1526501104942,12,Petición JDBC,200,OK,Plan 3 3-13,text,true,,797,0,1,72,12,0,0
+1526501104955,25,Petición JDBC,200,OK,Plan 3 3-13,text,true,,797,0,1,72,24,0,0
+1526501104980,16,Petición JDBC,200,OK,Plan 3 3-13,text,true,,797,0,1,72,16,0,0
+1526501104996,13,Petición JDBC,200,OK,Plan 3 3-13,text,true,,797,0,1,72,13,0,1
+1526501105010,14,Petición JDBC,200,OK,Plan 3 3-13,text,true,,797,0,1,71,14,0,0
+1526501105024,13,Petición JDBC,200,OK,Plan 3 3-13,text,true,,797,0,1,71,13,0,0
+1526501105238,41,Petición JDBC,200,OK,Plan 3 3-14,text,true,,797,0,1,71,41,0,0
+1526501105279,222,Petición JDBC,200,OK,Plan 3 3-14,text,true,,797,0,2,73,222,0,0
+1526501105499,57,Petición JDBC,200,OK,Plan 3 3-15,text,true,,797,0,2,73,57,0,0
+1526501105501,56,Petición JDBC,200,OK,Plan 3 3-14,text,true,,797,0,2,73,56,0,0
+1526501105556,39,Petición JDBC,200,OK,Plan 3 3-15,text,true,,797,0,2,74,39,0,0
+1526501105557,41,Petición JDBC,200,OK,Plan 3 3-14,text,true,,797,0,2,74,30,0,0
+1526501105600,28,Petición JDBC,200,OK,Plan 3 3-14,text,true,,797,0,2,74,28,0,0
+1526501105602,39,Petición JDBC,200,OK,Plan 3 3-15,text,true,,797,0,2,74,39,0,0
+1526501105629,26,Petición JDBC,200,OK,Plan 3 3-14,text,true,,797,0,2,74,26,0,0
+1526501105641,46,Petición JDBC,200,OK,Plan 3 3-15,text,true,,797,0,2,74,46,0,0
+1526501105665,31,Petición JDBC,200,OK,Plan 3 3-14,text,true,,797,0,2,74,31,0,0
+1526501105696,34,Petición JDBC,200,OK,Plan 3 3-14,text,true,,797,0,2,73,34,0,0
+1526501105687,47,Petición JDBC,200,OK,Plan 3 3-15,text,true,,797,0,2,73,47,0,0
+1526501105735,37,Petición JDBC,200,OK,Plan 3 3-15,text,true,,797,0,2,72,37,0,0
+1526501105730,62,Petición JDBC,200,OK,Plan 3 3-14,text,true,,797,0,2,72,62,0,0
+1526501105772,26,Petición JDBC,200,OK,Plan 3 3-15,text,true,,797,0,2,72,26,0,0
+1526501105792,14,Petición JDBC,200,OK,Plan 3 3-14,text,true,,797,0,3,73,14,0,0
+1526501105798,34,Petición JDBC,200,OK,Plan 3 3-15,text,true,,797,0,2,73,34,0,0
+1526501105800,33,Petición JDBC,200,OK,Plan 3 3-16,text,true,,797,0,2,73,33,0,0
+1526501105832,34,Petición JDBC,200,OK,Plan 3 3-15,text,true,,797,0,2,73,34,0,0
+1526501105833,33,Petición JDBC,200,OK,Plan 3 3-16,text,true,,797,0,2,73,33,0,0
+1526501105867,38,Petición JDBC,200,OK,Plan 3 3-15,text,true,,797,0,2,73,38,0,0
+1526501105867,40,Petición JDBC,200,OK,Plan 3 3-16,text,true,,797,0,1,72,40,0,0
+1526501105908,26,Petición JDBC,200,OK,Plan 3 3-16,text,true,,797,0,1,72,26,0,0
+1526501105934,18,Petición JDBC,200,OK,Plan 3 3-16,text,true,,797,0,1,72,17,0,0
+1526501105952,39,Petición JDBC,200,OK,Plan 3 3-16,text,true,,797,0,2,72,39,0,0
+1526501105991,40,Petición JDBC,200,OK,Plan 3 3-16,text,true,,797,0,2,72,40,0,0
+1526501105984,47,Petición JDBC,200,OK,Plan 3 3-17,text,true,,797,0,2,72,46,0,0
+1526501106051,55,Petición JDBC,200,OK,Plan 3 3-17,text,true,,797,0,2,73,55,0,0
+1526501106051,55,Petición JDBC,200,OK,Plan 3 3-16,text,true,,797,0,2,73,55,0,0
+1526501106106,37,Petición JDBC,200,OK,Plan 3 3-17,text,true,,797,0,2,73,36,0,0
+1526501106107,51,Petición JDBC,200,OK,Plan 3 3-16,text,true,,797,0,2,73,51,0,0
+1526501106159,214,Petición JDBC,200,OK,Plan 3 3-16,text,true,,797,0,2,73,214,0,0
+1526501106143,230,Petición JDBC,200,OK,Plan 3 3-17,text,true,,797,0,2,73,230,0,0
+1526501106389,110,Petición JDBC,200,OK,Plan 3 3-17,text,true,,797,0,2,74,110,0,0
+1526501106407,129,Petición JDBC,200,OK,Plan 3 3-18,text,true,,797,0,3,75,129,0,1
+1526501106530,32,Petición JDBC,200,OK,Plan 3 3-19,text,true,,797,0,3,74,32,0,0
+1526501106500,91,Petición JDBC,200,OK,Plan 3 3-17,text,true,,797,0,3,75,91,0,0
+1526501106562,61,Petición JDBC,200,OK,Plan 3 3-19,text,true,,797,0,3,75,61,0,0
+1526501106591,65,Petición JDBC,200,OK,Plan 3 3-17,text,true,,797,0,3,75,65,0,0
+1526501106537,120,Petición JDBC,200,OK,Plan 3 3-18,text,true,,797,0,3,75,120,0,0
+1526501106624,38,Petición JDBC,200,OK,Plan 3 3-19,text,true,,797,0,3,75,38,0,0
+1526501106657,37,Petición JDBC,200,OK,Plan 3 3-18,text,true,,797,0,3,75,36,0,0
+1526501106663,33,Petición JDBC,200,OK,Plan 3 3-19,text,true,,797,0,3,75,32,0,0
+1526501106657,49,Petición JDBC,200,OK,Plan 3 3-17,text,true,,797,0,3,75,49,0,0
+1526501106696,40,Petición JDBC,200,OK,Plan 3 3-19,text,true,,797,0,3,75,40,0,0
+1526501106694,48,Petición JDBC,200,OK,Plan 3 3-18,text,true,,797,0,3,75,48,0,0
+1526501106706,50,Petición JDBC,200,OK,Plan 3 3-17,text,true,,797,0,3,75,49,0,0
+1526501106736,35,Petición JDBC,200,OK,Plan 3 3-19,text,true,,797,0,3,75,35,0,0
+1526501106743,34,Petición JDBC,200,OK,Plan 3 3-18,text,true,,797,0,3,75,34,0,0
+1526501106756,72,Petición JDBC,200,OK,Plan 3 3-17,text,true,,797,0,3,74,71,0,0
+1526501106777,88,Petición JDBC,200,OK,Plan 3 3-18,text,true,,797,0,2,73,87,0,0
+1526501106772,101,Petición JDBC,200,OK,Plan 3 3-19,text,true,,797,0,2,73,101,0,0
+1526501106865,92,Petición JDBC,200,OK,Plan 3 3-18,text,true,,797,0,3,74,92,0,0
+1526501106925,242,Petición JDBC,200,OK,Plan 3 3-20,text,true,,797,0,3,74,241,0,0
+1526501106874,360,Petición JDBC,200,OK,Plan 3 3-19,text,true,,797,0,4,76,360,0,0
+1526501107237,45,Petición JDBC,200,OK,Plan 3 3-18,text,true,,797,0,4,76,44,0,0
+1526501107237,56,Petición JDBC,200,OK,Plan 3 3-19,text,true,,797,0,4,76,56,0,0
+1526501107167,136,Petición JDBC,200,OK,Plan 3 3-20,text,true,,797,0,4,76,136,0,0
+1526501107282,21,Petición JDBC,200,OK,Plan 3 3-18,text,true,,797,0,4,76,21,0,0
+1526501107293,18,Petición JDBC,200,OK,Plan 3 3-19,text,true,,797,0,4,76,17,0,0
+1526501107304,8,Petición JDBC,200,OK,Plan 3 3-18,text,true,,797,0,3,75,8,0,0
+1526501107189,142,Petición JDBC,200,OK,Plan 3 3-21,text,true,,797,0,2,75,142,0,0
+1526501107303,31,Petición JDBC,200,OK,Plan 3 3-20,text,true,,797,0,2,75,31,0,0
+1526501107332,36,Petición JDBC,200,OK,Plan 3 3-21,text,true,,797,0,2,74,36,0,0
+1526501107334,44,Petición JDBC,200,OK,Plan 3 3-20,text,true,,797,0,2,74,44,0,0
+1526501107379,1138,Petición JDBC,200,OK,Plan 3 3-20,text,true,,797,0,5,75,1138,0,0
+1526501107368,1221,Petición JDBC,200,OK,Plan 3 3-21,text,true,,797,0,7,76,1220,0,0
+1526501108506,105,Petición JDBC,200,OK,Plan 3 3-23,text,true,,797,0,7,76,105,0,0
+1526501108549,64,Petición JDBC,200,OK,Plan 3 3-26,text,true,,797,0,7,76,63,0,0
+1526501108506,113,Petición JDBC,200,OK,Plan 3 3-22,text,true,,797,0,7,76,113,0,0
+1526501108612,8,Petición JDBC,200,OK,Plan 3 3-23,text,true,,797,0,7,76,7,0,0
+1526501108507,118,Petición JDBC,200,OK,Plan 3 3-20,text,true,,797,0,7,76,118,0,0
+1526501108530,103,Petición JDBC,200,OK,Plan 3 3-25,text,true,,797,0,7,76,103,0,0
+1526501108613,21,Petición JDBC,200,OK,Plan 3 3-26,text,true,,797,0,7,76,21,0,0
+1526501108553,82,Petición JDBC,200,OK,Plan 3 3-24,text,true,,797,0,7,76,82,0,0
+1526501108579,63,Petición JDBC,200,OK,Plan 3 3-21,text,true,,797,0,7,76,62,0,0
+1526501108620,23,Petición JDBC,200,OK,Plan 3 3-22,text,true,,797,0,7,76,23,0,0
+1526501108620,25,Petición JDBC,200,OK,Plan 3 3-23,text,true,,797,0,7,76,25,0,0
+1526501108634,20,Petición JDBC,200,OK,Plan 3 3-26,text,true,,797,0,7,76,20,0,0
+1526501108645,10,Petición JDBC,200,OK,Plan 3 3-23,text,true,,797,0,7,76,9,0,0
+1526501108644,11,Petición JDBC,200,OK,Plan 3 3-22,text,true,,797,0,7,76,11,0,0
+1526501108633,22,Petición JDBC,200,OK,Plan 3 3-25,text,true,,797,0,7,76,22,0,0
+1526501108625,32,Petición JDBC,200,OK,Plan 3 3-20,text,true,,797,0,7,76,32,0,0
+1526501108655,4,Petición JDBC,200,OK,Plan 3 3-22,text,true,,797,0,7,76,4,0,0
+1526501108655,6,Petición JDBC,200,OK,Plan 3 3-23,text,true,,797,0,7,76,5,0,0
+1526501108638,28,Petición JDBC,200,OK,Plan 3 3-24,text,true,,797,0,7,76,28,0,0
+1526501108643,25,Petición JDBC,200,OK,Plan 3 3-21,text,true,,797,0,7,76,25,0,0
+1526501108655,14,Petición JDBC,200,OK,Plan 3 3-26,text,true,,797,0,7,76,14,0,0
+1526501108660,10,Petición JDBC,200,OK,Plan 3 3-22,text,true,,797,0,7,76,10,0,0
+1526501108661,11,Petición JDBC,200,OK,Plan 3 3-23,text,true,,797,0,7,76,10,0,0
+1526501108656,17,Petición JDBC,200,OK,Plan 3 3-25,text,true,,797,0,7,76,17,0,0
+1526501108671,9,Petición JDBC,200,OK,Plan 3 3-22,text,true,,797,0,7,76,9,0,0
+1526501108672,10,Petición JDBC,200,OK,Plan 3 3-23,text,true,,797,0,7,76,10,0,0
+1526501108669,15,Petición JDBC,200,OK,Plan 3 3-26,text,true,,797,0,7,76,15,0,0
+1526501108657,29,Petición JDBC,200,OK,Plan 3 3-20,text,true,,797,0,7,76,29,0,0
+1526501108680,10,Petición JDBC,200,OK,Plan 3 3-22,text,true,,797,0,7,76,10,0,0
+1526501108682,10,Petición JDBC,200,OK,Plan 3 3-23,text,true,,797,0,7,76,10,0,0
+1526501108666,27,Petición JDBC,200,OK,Plan 3 3-24,text,true,,797,0,7,76,26,0,0
+1526501108668,25,Petición JDBC,200,OK,Plan 3 3-21,text,true,,797,0,7,76,25,0,0
+1526501108673,24,Petición JDBC,200,OK,Plan 3 3-25,text,true,,797,0,7,76,24,0,0
+1526501108690,8,Petición JDBC,200,OK,Plan 3 3-22,text,true,,797,0,7,76,8,0,0
+1526501108685,13,Petición JDBC,200,OK,Plan 3 3-26,text,true,,797,0,7,76,13,0,0
+1526501108692,8,Petición JDBC,200,OK,Plan 3 3-23,text,true,,797,0,7,76,8,0,0
+1526501108698,9,Petición JDBC,200,OK,Plan 3 3-22,text,true,,797,0,7,76,9,0,0
+1526501108701,8,Petición JDBC,200,OK,Plan 3 3-23,text,true,,797,0,7,76,8,0,0
+1526501108699,10,Petición JDBC,200,OK,Plan 3 3-26,text,true,,797,0,7,76,10,0,0
+1526501108686,23,Petición JDBC,200,OK,Plan 3 3-20,text,true,,797,0,7,76,23,0,0
+1526501108698,15,Petición JDBC,200,OK,Plan 3 3-25,text,true,,797,0,6,75,15,0,0
+1526501108707,9,Petición JDBC,200,OK,Plan 3 3-22,text,true,,797,0,6,75,9,0,0
+1526501108693,27,Petición JDBC,200,OK,Plan 3 3-24,text,true,,797,0,5,74,27,0,0
+1526501108693,33,Petición JDBC,200,OK,Plan 3 3-21,text,true,,797,0,5,74,32,0,0
+1526501108709,21,Petición JDBC,200,OK,Plan 3 3-26,text,true,,797,0,5,74,21,0,0
+1526501108713,35,Petición JDBC,200,OK,Plan 3 3-25,text,true,,797,0,5,74,34,0,0
+1526501108709,44,Petición JDBC,200,OK,Plan 3 3-20,text,true,,797,0,5,74,44,0,0
+1526501108720,40,Petición JDBC,200,OK,Plan 3 3-24,text,true,,797,0,4,73,40,0,0
+1526501108726,36,Petición JDBC,200,OK,Plan 3 3-21,text,true,,797,0,4,73,36,0,0
+1526501108730,37,Petición JDBC,200,OK,Plan 3 3-26,text,true,,797,0,4,73,37,0,0
+1526501108748,21,Petición JDBC,200,OK,Plan 3 3-25,text,true,,797,0,4,73,20,0,0
+1526501108767,17,Petición JDBC,200,OK,Plan 3 3-26,text,true,,797,0,4,73,17,0,1
+1526501108769,23,Petición JDBC,200,OK,Plan 3 3-25,text,true,,797,0,3,72,23,0,0
+1526501108760,38,Petición JDBC,200,OK,Plan 3 3-24,text,true,,797,0,3,72,38,0,0
+1526501108763,36,Petición JDBC,200,OK,Plan 3 3-21,text,true,,797,0,3,72,36,0,0
+1526501108792,25,Petición JDBC,200,OK,Plan 3 3-25,text,true,,797,0,3,72,25,0,0
+1526501108798,30,Petición JDBC,200,OK,Plan 3 3-24,text,true,,797,0,3,72,30,0,0
+1526501108799,31,Petición JDBC,200,OK,Plan 3 3-21,text,true,,797,0,3,72,31,0,0
+1526501108829,37,Petición JDBC,200,OK,Plan 3 3-24,text,true,,797,0,2,71,36,0,0
+1526501108817,51,Petición JDBC,200,OK,Plan 3 3-25,text,true,,797,0,2,71,32,0,0
+1526501108866,31,Petición JDBC,200,OK,Plan 3 3-24,text,true,,797,0,2,71,31,0,0
+1526501108896,20,Petición JDBC,200,OK,Plan 3 3-27,text,true,,797,0,2,71,20,0,0
+1526501108898,28,Petición JDBC,200,OK,Plan 3 3-24,text,true,,797,0,2,71,28,0,0
+1526501108916,19,Petición JDBC,200,OK,Plan 3 3-27,text,true,,797,0,1,70,19,0,0
+1526501108935,29,Petición JDBC,200,OK,Plan 3 3-27,text,true,,797,0,1,70,29,0,0
+1526501108965,24,Petición JDBC,200,OK,Plan 3 3-27,text,true,,797,0,1,70,24,0,0
+1526501108989,29,Petición JDBC,200,OK,Plan 3 3-27,text,true,,797,0,1,70,29,0,0
+1526501109020,29,Petición JDBC,200,OK,Plan 3 3-27,text,true,,797,0,1,70,29,0,0
+1526501109049,224,Petición JDBC,200,OK,Plan 3 3-27,text,true,,797,0,2,71,224,0,0
+1526501109052,231,Petición JDBC,200,OK,Plan 3 3-28,text,true,,797,0,2,71,231,0,0
+1526501109273,104,Petición JDBC,200,OK,Plan 3 3-27,text,true,,797,0,2,71,104,0,0
+1526501109283,129,Petición JDBC,200,OK,Plan 3 3-28,text,true,,797,0,2,71,129,0,1
+1526501109377,44,Petición JDBC,200,OK,Plan 3 3-27,text,true,,797,0,2,71,44,0,0
+1526501109412,24,Petición JDBC,200,OK,Plan 3 3-28,text,true,,797,0,2,71,24,0,0
+1526501109421,17,Petición JDBC,200,OK,Plan 3 3-27,text,true,,797,0,2,71,17,0,0
+1526501109436,20,Petición JDBC,200,OK,Plan 3 3-28,text,true,,797,0,2,71,20,0,0
+1526501109449,19,Petición JDBC,200,OK,Plan 3 3-29,text,true,,797,0,2,71,19,0,0
+1526501109456,29,Petición JDBC,200,OK,Plan 3 3-28,text,true,,797,0,2,71,28,0,0
+1526501109468,26,Petición JDBC,200,OK,Plan 3 3-29,text,true,,797,0,2,71,26,0,0
+1526501109485,28,Petición JDBC,200,OK,Plan 3 3-28,text,true,,797,0,2,71,28,0,0
+1526501109494,24,Petición JDBC,200,OK,Plan 3 3-29,text,true,,797,0,2,71,24,0,0
+1526501109524,35,Petición JDBC,200,OK,Plan 3 3-29,text,true,,797,0,2,71,35,0,0
+1526501109524,40,Petición JDBC,200,OK,Plan 3 3-28,text,true,,797,0,2,71,40,0,0
+1526501109560,30,Petición JDBC,200,OK,Plan 3 3-29,text,true,,797,0,2,71,30,0,0
+1526501109565,26,Petición JDBC,200,OK,Plan 3 3-28,text,true,,797,0,2,71,25,0,0
+1526501109591,52,Petición JDBC,200,OK,Plan 3 3-29,text,true,,797,0,2,71,52,0,0
+1526501109591,53,Petición JDBC,200,OK,Plan 3 3-28,text,true,,797,0,2,71,53,0,0
+1526501109644,22,Petición JDBC,200,OK,Plan 3 3-29,text,true,,797,0,2,71,22,0,0
+1526501109645,29,Petición JDBC,200,OK,Plan 3 3-28,text,true,,797,0,2,71,29,0,0
+1526501109666,22,Petición JDBC,200,OK,Plan 3 3-29,text,true,,797,0,1,70,22,0,0
+1526501109689,31,Petición JDBC,200,OK,Plan 3 3-29,text,true,,797,0,1,70,31,0,0
+1526501109720,29,Petición JDBC,200,OK,Plan 3 3-29,text,true,,797,0,2,71,29,0,0
+1526501109729,29,Petición JDBC,200,OK,Plan 3 3-30,text,true,,797,0,1,70,29,0,0
+1526501109758,26,Petición JDBC,200,OK,Plan 3 3-30,text,true,,797,0,1,70,26,0,1
+1526501109784,1116,Petición JDBC,200,OK,Plan 3 3-30,text,true,,797,0,3,72,1116,0,0
+1526501110834,67,Petición JDBC,200,OK,Plan 3 3-32,text,true,,797,0,3,72,67,0,0
+1526501110900,44,Petición JDBC,200,OK,Plan 3 3-30,text,true,,797,0,3,72,44,0,0
+1526501110877,982,Petición JDBC,200,OK,Plan 3 3-31,text,true,,797,0,3,72,982,0,0
+1526501110901,959,Petición JDBC,200,OK,Plan 3 3-32,text,true,,797,0,3,72,959,0,0
+1526501110944,917,Petición JDBC,200,OK,Plan 3 3-30,text,true,,797,0,3,72,917,0,0
+1526501112785,986,Petición JDBC,200,OK,Plan 3 3-30,text,true,,797,0,3,72,986,0,0
+1526501113773,28,Petición JDBC,200,OK,Plan 3 3-30,text,true,,797,0,3,72,28,0,0
+1526501101448,13218,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-3,text,false,,67,0,69,72,0,0,13218
+1526501101446,13222,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-2,text,false,,67,0,68,71,0,0,13222
+1526501101564,13104,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-61,text,false,,67,0,67,70,0,0,13104
+1526501101552,13558,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-50,text,false,,67,0,66,69,0,0,13558
+1526501113801,1301,Petición JDBC,200,OK,Plan 3 3-30,text,true,,797,0,3,68,1300,0,0
+1526501101552,13597,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-54,text,false,,67,0,65,68,0,0,13597
+1526501101552,13599,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-51,text,false,,67,0,64,67,0,0,13599
+1526501112785,2358,Petición JDBC,200,OK,Plan 3 3-32,text,true,,797,0,3,66,2358,0,0
+1526501112785,2359,Petición JDBC,200,OK,Plan 3 3-31,text,true,,797,0,3,66,2359,0,0
+1526501101552,13649,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-49,text,false,,67,0,63,66,0,0,13649
+1526501101554,13650,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-53,text,false,,67,0,62,65,0,0,13650
+1526501115143,967,Petición JDBC,200,OK,Plan 3 3-32,text,true,,797,0,3,64,967,0,0
+1526501115103,1007,Petición JDBC,200,OK,Plan 3 3-30,text,true,,797,0,3,64,1007,0,0
+1526501101562,14559,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-60,text,false,,67,0,61,64,0,0,14558
+1526501101560,14563,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-59,text,false,,67,0,60,63,0,0,14563
+1526501101519,14605,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-34,text,false,,67,0,59,62,0,0,14605
+1526501101522,14603,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-35,text,false,,67,0,58,61,0,0,14603
+1526501101560,14566,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-58,text,false,,67,0,57,60,0,0,14566
+1526501101525,14602,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-36,text,false,,67,0,56,59,0,0,14602
+1526501101536,14616,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-37,text,false,,67,0,55,58,0,0,14616
+1526501101558,14595,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-57,text,false,,67,0,54,57,0,0,14595
+1526501101538,14620,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-40,text,false,,67,0,53,56,0,0,14620
+1526501101556,14605,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-55,text,false,,67,0,52,55,0,0,14605
+1526501101538,14623,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-41,text,false,,67,0,52,55,0,0,14623
+1526501101539,14623,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-38,text,false,,67,0,51,54,0,0,14623
+1526501101556,14606,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-56,text,false,,67,0,49,52,0,0,14606
+1526501101539,14624,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-39,text,false,,67,0,49,52,0,0,14624
+1526501115145,1008,Petición JDBC,200,OK,Plan 3 3-31,text,true,,797,0,3,50,1008,0,0
+1526501101541,14623,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-43,text,false,,67,0,47,50,0,0,14623
+1526501101544,14622,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-44,text,false,,67,0,46,49,0,0,14622
+1526501101555,15537,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-48,text,false,,67,0,45,48,0,0,15537
+1526501101550,15556,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-46,text,false,,67,0,43,46,0,0,15556
+1526501101499,15663,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-21,text,false,,67,0,42,45,0,0,15663
+1526501101501,15681,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-25,text,false,,67,0,41,44,0,0,15680
+1526501101496,15687,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-20,text,false,,67,0,41,44,0,0,15687
+1526501101501,15682,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-24,text,false,,67,0,40,43,0,0,15682
+1526501101548,15635,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-47,text,false,,67,0,39,42,0,0,15635
+1526501101504,15679,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-26,text,false,,67,0,39,41,0,0,15679
+1526501116112,1061,Petición JDBC,200,OK,Plan 3 3-30,text,true,,797,0,3,40,1061,0,0
+1526501116112,1061,Petición JDBC,200,OK,Plan 3 3-32,text,true,,797,0,3,40,1061,0,0
+1526501116154,1019,Petición JDBC,200,OK,Plan 3 3-31,text,true,,797,0,3,40,1019,0,0
+1526501101504,15681,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-22,text,false,,67,0,36,38,0,0,15681
+1526501101506,15696,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-28,text,false,,67,0,35,37,0,0,15696
+1526501101545,15658,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-45,text,false,,67,0,34,36,0,0,15658
+1526501101508,15696,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-29,text,false,,67,0,33,35,0,0,15696
+1526501101501,15708,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-23,text,false,,67,0,31,33,0,0,15708
+1526501101510,15701,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-31,text,false,,67,0,30,32,0,0,15701
+1526501101494,15732,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-19,text,false,,67,0,29,31,0,0,15732
+1526501101494,15736,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-18,text,false,,67,0,29,31,0,0,15735
+1526501101491,15761,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-17,text,false,,67,0,29,31,0,0,15761
+1526501101491,15761,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-15,text,false,,67,0,29,31,0,0,15761
+1526501101514,15738,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-32,text,false,,67,0,29,31,0,0,15738
+1526501101490,15764,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-16,text,false,,67,0,28,30,0,0,15764
+1526501101516,15738,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-33,text,false,,67,0,27,29,0,0,15738
+1526501101489,15767,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-14,text,false,,67,0,25,27,0,0,15767
+1526501117175,1055,Petición JDBC,200,OK,Plan 3 3-31,text,true,,797,0,2,26,1055,0,0
+1526501101484,16807,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-8,text,false,,67,0,22,24,0,0,16807
+1526501101466,16826,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-10,text,false,,67,0,20,22,0,0,16826
+1526501101465,16827,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-67,text,false,,67,0,20,22,0,0,16827
+1526501117175,1107,Petición JDBC,200,OK,Plan 3 3-32,text,true,,797,0,2,21,1107,0,0
+1526501101464,16829,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-9,text,false,,67,0,17,19,0,0,16829
+1526501101485,16808,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-12,text,false,,67,0,16,18,0,0,16808
+1526501101462,16832,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-13,text,false,,67,0,15,17,0,0,16832
+1526501101453,17756,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-4,text,false,,67,0,14,16,0,0,17748
+1526501101449,17761,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-7,text,false,,67,0,13,15,0,0,17761
+1526501101450,17761,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-5,text,false,,67,0,12,14,0,0,17761
+1526501101457,17754,Petición JDBC,null 0,"java.sql.SQLException: Cannot get a connection, pool error Timeout waiting for idle object",Plan 1 1-6,text,false,,67,0,10,12,0,0,17754
+1526501119253,89,Petición JDBC,200,OK,Plan 3 3-31,text,true,,797,0,2,9,89,0,0
+1526501119343,32,Petición JDBC,200,OK,Plan 3 3-31,text,true,,797,0,2,9,32,0,0
+1526501119263,114,Petición JDBC,200,OK,Plan 3 3-32,text,true,,797,0,2,9,114,0,0
+1526501119375,7,Petición JDBC,200,OK,Plan 3 3-31,text,true,,797,0,2,9,7,0,0
+1526501119383,943,Petición JDBC,200,OK,Plan 3 3-31,text,true,,797,0,2,8,942,0,0
+1526501119377,951,Petición JDBC,200,OK,Plan 3 3-32,text,true,,797,0,2,8,951,0,0
+1526501120327,68,Petición JDBC,200,OK,Plan 3 3-31,text,true,,797,0,2,7,68,0,0
+1526501120328,89,Petición JDBC,200,OK,Plan 3 3-32,text,true,,797,0,1,6,89,0,0
+1526501120417,18,Petición JDBC,200,OK,Plan 3 3-32,text,true,,797,0,1,6,18,0,0

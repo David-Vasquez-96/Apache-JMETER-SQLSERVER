@@ -1,0 +1,46 @@
+2018-05-17 10:43:46,157 INFO o.a.j.u.JMeterUtils: Setting Locale to es_GT
+2018-05-17 10:43:46,204 INFO o.a.j.u.JMeterUtils: Could not find resources for 'es_GT', using 'es'
+2018-05-17 10:43:46,282 INFO o.a.j.JMeter: Loading user properties from: user.properties
+2018-05-17 10:43:46,282 INFO o.a.j.JMeter: Loading system properties from: system.properties
+2018-05-17 10:43:46,297 INFO o.a.j.JMeter: Copyright (c) 1998-2018 The Apache Software Foundation
+2018-05-17 10:43:46,297 INFO o.a.j.JMeter: Version 4.0 r1823414
+2018-05-17 10:43:46,297 INFO o.a.j.JMeter: java.version=9.0.4
+2018-05-17 10:43:46,297 INFO o.a.j.JMeter: java.vm.name=Java HotSpot(TM) 64-Bit Server VM
+2018-05-17 10:43:46,297 INFO o.a.j.JMeter: os.name=Windows 10
+2018-05-17 10:43:46,297 INFO o.a.j.JMeter: os.arch=amd64
+2018-05-17 10:43:46,297 INFO o.a.j.JMeter: os.version=10.0
+2018-05-17 10:43:46,297 INFO o.a.j.JMeter: file.encoding=Cp1252
+2018-05-17 10:43:46,297 INFO o.a.j.JMeter: Max memory     =985661440
+2018-05-17 10:43:46,297 INFO o.a.j.JMeter: Available Processors =4
+2018-05-17 10:43:46,329 INFO o.a.j.JMeter: Default Locale=español (Guatemala)
+2018-05-17 10:43:46,329 INFO o.a.j.JMeter: JMeter  Locale=español (Guatemala)
+2018-05-17 10:43:46,329 INFO o.a.j.JMeter: JMeterHome=C:\Users\DAVID\Documents\archivos 2\aplicaciones\JMETER\apache-jmeter-4.0
+2018-05-17 10:43:46,329 INFO o.a.j.JMeter: user.dir  =C:\Users\DAVID\Documents\archivos 2\aplicaciones\JMETER\apache-jmeter-4.0\bin
+2018-05-17 10:43:46,344 INFO o.a.j.JMeter: PWD       =C:\Users\DAVID\Documents\archivos 2\aplicaciones\JMETER\apache-jmeter-4.0\bin
+2018-05-17 10:43:57,692 INFO o.a.j.JMeter: IP: 192.168.8.101 Name: DAVID FullName: 192.168.8.101
+2018-05-17 10:43:59,554 INFO o.a.j.g.a.LookAndFeelCommand: Installing Darcula LAF
+2018-05-17 10:43:59,617 INFO o.a.j.g.a.LookAndFeelCommand: Using look and feel: com.bulenkov.darcula.DarculaLaf [Darcula]
+2018-05-17 10:43:59,617 INFO o.a.j.JMeter: Setting LAF to: com.bulenkov.darcula.DarculaLaf
+2018-05-17 10:44:00,117 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2018-05-17 10:44:01,804 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2018-05-17 10:44:01,804 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2018-05-17 10:44:11,774 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/html is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-05-17 10:44:11,790 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xhtml+xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-05-17 10:44:11,790 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for application/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-05-17 10:44:11,790 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/xml is org.apache.jmeter.protocol.http.parser.LagartoBasedHtmlParser
+2018-05-17 10:44:11,790 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/vnd.wap.wml is org.apache.jmeter.protocol.http.parser.RegexpHTMLParser
+2018-05-17 10:44:11,790 INFO o.a.j.p.h.s.HTTPSamplerBase: Parser for text/css is org.apache.jmeter.protocol.http.parser.CssParser
+2018-05-17 10:44:13,394 INFO o.a.j.e.KeyToolUtils: keytool found at 'keytool'
+2018-05-17 10:44:13,394 INFO o.a.j.p.h.p.ProxyControl: HTTP(S) Test Script Recorder SSL Proxy will use keys that support embedded 3rd party resources in file C:\Users\DAVID\Documents\archivos 2\aplicaciones\JMETER\apache-jmeter-4.0\bin\proxyserver.jks
+2018-05-17 10:44:13,909 INFO o.a.j.s.FileServer: Default base='C:\Users\DAVID\Documents\archivos 2\aplicaciones\JMETER\apache-jmeter-4.0\bin'
+2018-05-17 10:44:15,511 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2018-05-17 10:44:15,511 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2018-05-17 10:44:15,511 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2018-05-17 10:44:15,511 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2018-05-17 10:46:21,470 INFO o.a.j.g.a.Load: Loading file: C:\Users\DAVID\Desktop\archivos\VII ciclo\3. BASE DE DATOS II\ejercicios JMETER\Plan 1.jmx
+2018-05-17 10:46:21,470 INFO o.a.j.s.FileServer: Set new base='C:\Users\DAVID\Desktop\archivos\VII ciclo\3. BASE DE DATOS II\ejercicios JMETER'
+2018-05-17 10:46:22,064 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2018-05-17 10:46:22,235 INFO o.a.j.s.SaveService: Using SaveService properties version 4.0
+2018-05-17 10:46:22,235 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2018-05-17 10:46:22,235 INFO o.a.j.s.SaveService: Loading file: C:\Users\DAVID\Desktop\archivos\VII ciclo\3. BASE DE DATOS II\ejercicios JMETER\Plan 1.jmx
+2018-05-17 10:46:23,007 INFO o.a.j.s.FileServer: Set new base='C:\Users\DAVID\Desktop\archivos\VII ciclo\3. BASE DE DATOS II\ejercicios JMETER'
